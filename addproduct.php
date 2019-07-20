@@ -32,12 +32,12 @@
         <div id="wrapper">
     
             <!-- Navigation -->
-   <?php include_once("sidebar.php"); ?>
+   <?php include_once("Admin-Web-Template/sidebar.php"); ?>
            
    
             <!-- Page Content -->
             <div id="page-wrapper" style="width:100%;">
-               <?php   include_once("navbar.php");  ?>
+               <?php   include_once("Admin-Web-Template/navbar.php");  ?>
                
                 <div class="container">
                    

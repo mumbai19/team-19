@@ -31,7 +31,7 @@ include_once("config.php");
           <h1>Pending Orders</h1>
           <?php  
             $query="select * from product,order_master,order_product_mapping,customer where order_master.order_id=order_product_mapping.order_id and order_product_mapping.product_id=product.pid and order_master.cb_flag=1 and customer.customer_id=order_master.customer_id and order_master.order_status=0";
-            $result=mysqli_query($connection,$query);
+            $result=mysqli_query($conn,$query);
             
             while($row=mysqli_fetch_assoc($result))
             {

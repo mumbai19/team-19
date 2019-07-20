@@ -17,6 +17,75 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<!--  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+<script>
+    $(document).ready(function() {
+       var quantitiy=0;
+        
+        $(".quantity").change(function () {
+            handleQty();
+        });
+    
+       $('.quantity-right-plus').click(function(e){
+
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+                $('#quantity').val(quantity + 1);
+
+
+                // Increment
+           handleQty();
+
+        });
+
+         $('.quantity-left-minus').click(function(e){
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+                // Increment
+                if(quantity>0){
+                    $('#quantity').val(quantity - 1);
+                }
+             handleQty();
+        }); 
+    });
+    
+    function handleQty() {
+        var qty = $("#quantity").val();
+        var bulkSelected = false;
+        if (qty > 50) {
+            bulkSelected = true;
+        }
+        else {
+            bulkSelected = false;
+        }
+
+        toggleCartButton(bulkSelected);
+    }
+    
+    function toggleCartButton(bulkSelected) {
+        if (bulkSelected) {
+            $(".addToCart").addClass('disabled');
+        }
+        else {
+            $(".addToCart").removeClass('disabled');
+        }
+    }
+    
+    
+    </script>
+
 
 </head>
 
@@ -38,14 +107,7 @@
         <!-- Topbar -->
         <?php   include_once("navbar.php");  ?>
         <!-- End of Topbar -->
-        <script>
-        function increment_cartCount(){
-          var cnt = document.getElementById("cartCount").innerHTML;
-          cnt++;
-          document.getElementById("cartCount").innerHTML = cnt;
-          
-        }
-        </script>
+        
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -68,17 +130,22 @@
                 <p class="card-text">₹<?php echo $row['price'] ?></p>
                 <div class="row" style="justify-content: center">
                 <a href="#" class="btn btn-primary mr-2">Buy Now</a>
-                <a id="cart-<?php echo $row['pid']; ?>" href="javascript:increment_cartCount()" class="addToCart btn btn-primary"><i class="fas fa-shopping-cart fa-fw"></i></a> 
-                <div class="btn-group">
-                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1</button>
-                  <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">2</a>
-                    <a class="dropdown-item" href="#">3</a>
-                 <a class="dropdown-item" href="#">4</a>
-                   <div class="dropdown-divider"></div>
-                   <a class="dropdown-item" href="#">5</a>
-                  </div>
-                </div>       
+                <a id="cart-<?php echo $row['pid']; ?>" class="addToCart btn btn-primary"><i class="fas fa-shopping-cart fa-fw"></i></a> 
+                <div style="margin: 10px">
+                                        <div class="input-group" style="width: 15rem;">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-lg btn-danger btn-number"  data-type="minus" data-field="">
+                                          <i class="fa fa-minus"></i>
+                                        </button>
+                                    </span>
+                                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-lg btn-success btn-number" data-type="plus" data-field="">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                        </div> 
               </div>
             </div>
             </div>
@@ -122,7 +189,8 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
+<!--  <script src="vendor/jquery/jquery.min.js"></script>-->
+  
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
