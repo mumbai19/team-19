@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 02:52 PM
+-- Generation Time: Jul 20, 2019 at 03:26 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -62,16 +62,17 @@ CREATE TABLE `order_master` (
   `order_date` date NOT NULL,
   `total` double NOT NULL,
   `cb_flag` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL
+  `customer_id` int(11) NOT NULL,
+  `order_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_master`
 --
 
-INSERT INTO `order_master` (`order_id`, `order_date`, `total`, `cb_flag`, `customer_id`) VALUES
-(1, '2019-07-09', 1230, 0, 1),
-(2, '2019-07-02', 1000, 1, 2);
+INSERT INTO `order_master` (`order_id`, `order_date`, `total`, `cb_flag`, `customer_id`, `order_status`) VALUES
+(1, '2019-07-09', 1230, 0, 1, 0),
+(2, '2019-07-02', 1000, 1, 2, 0);
 
 -- --------------------------------------------------------
 
