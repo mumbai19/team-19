@@ -6,9 +6,9 @@
     if(!is_null($obj))
     {
         $apikey = $obj->{'apikey'};
-        $username = $obj->{'apikey'};
-        $amount = $obj->{'apikey'};
-        $transactionid = $obj->{'apikey'};
+        $username = $obj->{'username'};
+        $amount = $obj->{'amount'};
+        $transactionid = $obj->{'transactionid'};
 
         $sql = "SELECT * FROM apikeys WHERE apikey = '$apikey'";
         if($result = mysqli_query($link, $sql)){

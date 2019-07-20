@@ -1,4 +1,4 @@
-<?php //include('config.php'); ?>
+<?php include('../config.php'); ?>
 <html lang="en">
 
 <head>
@@ -55,29 +55,38 @@
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
            --></div>
 
-             <div class="col-xl-4 col-md-7 mb-5">
-              <div class="card border-left-success shadow h-100 py-2">
-              <?php 
-                  $sqlgetall = "SELECT * FROM product";
-                  if ($res = mysqli_query($link, $sqlgetall)) { 
-                    if (mysqli_num_rows($res) > 0) {
-                      while ($row = mysqli_fetch_array($res)) { ?>
-                <img class="card-img-top" src="<?php echo row['image']; ?>" alt="Card image cap">
-                <div class="card-body">
-                  
-                  <h5 class="card-title"><?php echo $row['pname']; 
-                  }
-                }
-              }?> </h5>
-                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <a href="#" class="btn btn-primary">Buy Now</a>
-                  <a href="javascript:increment_cartCount()" class="btn btn-primary">Add to cart</a>  
-                </div>
-                </div>
+          <div class="row mt-3">
+           <?php 
+              $sqlgetall = "SELECT * FROM product";
+                if ($res = mysqli_query($conn, $sqlgetall)) { 
+                  if (mysqli_num_rows($res) > 0) { 
+                    while ($row = mysqli_fetch_array($res)) { ?>  
+           <div class="card-block mr-4 border" style="width: 18rem;">
+                <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="...">
+                <div class="card-body" style="diplay:inline-block">
+                <h5 class="card-title"><a href="ProductDetails.php?productID=<?php echo $row['pid']; ?>"><?php echo $row['pname']; ?></a></h5>
+                <p class="card-text">₹<?php echo $row['price'] ?></p>
+                <div class="row" style="justify-content: center">
+                <a href="#" class="btn btn-primary mr-2">Buy Now</a>
+                <a id="cart-<?php echo $row['pid']; ?>" href="javascript:increment_cartCount()" class="addToCart btn btn-primary"><i class="fas fa-shopping-cart fa-fw"></i></a> 
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1</button>
+                  <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">2</a>
+                    <a class="dropdown-item" href="#">3</a>
+                 <a class="dropdown-item" href="#">4</a>
+                   <div class="dropdown-divider"></div>
+                   <a class="dropdown-item" href="#">5</a>
+                  </div>
+                </div>       
               </div>
             </div>
-
-            
+            </div>
+     <?php       }
+              }
+          } ?>
+          </div>
+          
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -128,6 +137,7 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="cart.js"></script>
 
 </body>
 
