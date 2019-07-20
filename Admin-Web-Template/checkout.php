@@ -51,32 +51,43 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Checkouts</h1>
            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
            --></div>
 
-             <div class="col-xl-4 col-md-7 mb-5">
-              <div class="card border-left-success shadow h-100 py-2">
-              <?php 
-                  $sqlgetall = "SELECT * FROM product";
-                  if ($res = mysqli_query($link, $sqlgetall)) { 
-                    if (mysqli_num_rows($res) > 0) {
-                      while ($row = mysqli_fetch_array($res)) { ?>
-                <img class="card-img-top" src="<?php echo row['image']; ?>" alt="Card image cap">
-                <div class="card-body">
-                  
-                  <h5 class="card-title"><?php echo $row['pname']; 
-                  }
-                }
-              }?> </h5>
-                  <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                  <a href="#" class="btn btn-primary">Buy Now</a>
-                  <a href="javascript:increment_cartCount()" class="btn btn-primary">Add to cart</a>  
-                </div>
-                </div>
-              </div>
-            </div>
+           <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sr. No.</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
 
+
+             
             
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
