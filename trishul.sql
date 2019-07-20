@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 01:46 PM
+-- Generation Time: Jul 20, 2019 at 02:52 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -25,13 +25,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `apikeys`
+--
+
+CREATE TABLE `apikeys` (
+  `apikey` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL,
-  `customer_name` int(11) NOT NULL
+  `customer_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `customer_name`) VALUES
+(1, 'Customer1'),
+(2, 'Customer2');
 
 -- --------------------------------------------------------
 
@@ -47,6 +65,34 @@ CREATE TABLE `order_master` (
   `customer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `order_master`
+--
+
+INSERT INTO `order_master` (`order_id`, `order_date`, `total`, `cb_flag`, `customer_id`) VALUES
+(1, '2019-07-09', 1230, 0, 1),
+(2, '2019-07-02', 1000, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_product_mapping`
+--
+
+CREATE TABLE `order_product_mapping` (
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_product_mapping`
+--
+
+INSERT INTO `order_product_mapping` (`order_id`, `product_id`, `qty`) VALUES
+(1, 2, 1),
+(2, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -58,8 +104,17 @@ CREATE TABLE `product` (
   `pname` varchar(200) NOT NULL,
   `price` double NOT NULL,
   `quantity` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NOT NULL,
+  `team_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`pid`, `pname`, `price`, `quantity`, `image`, `team_id`) VALUES
+(1, 'Handcrafted necklace', 500, 4, '', 1),
+(2, 'Beaded Bag', 1230, 10, '', 2);
 
 -- --------------------------------------------------------
 
@@ -72,6 +127,14 @@ CREATE TABLE `team` (
   `team_name` varchar(100) NOT NULL,
   `region` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`team_id`, `team_name`, `region`) VALUES
+(1, 'Woman Bags', 'Nagpur'),
+(2, 'Handicraft', 'Haryana');
 
 --
 -- Indexes for dumped tables
@@ -90,6 +153,12 @@ ALTER TABLE `order_master`
   ADD PRIMARY KEY (`order_id`);
 
 --
+-- Indexes for table `order_product_mapping`
+--
+ALTER TABLE `order_product_mapping`
+  ADD PRIMARY KEY (`order_id`,`product_id`);
+
+--
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
@@ -103,19 +172,19 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_master`
 --
 ALTER TABLE `order_master`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
