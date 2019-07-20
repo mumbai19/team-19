@@ -1,3 +1,61 @@
+<?php
+include 'config.php';
+ 
+ 
+	if(isset($_POST["submit"]))
+	{
+		$pname=$_POST["product_name"];
+	$price=$_POST["price"];
+		$qty=$_POST["quantity"];
+		$teamid=1;
+		$filename="";
+		
+	if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
+        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+        $filename = $_FILES["photo"]["name"];
+        $filetype = $_FILES["photo"]["type"];
+        $filesize = $_FILES["photo"]["size"];
+    
+        // Verify file extension
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+        if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
+    
+        // Verify file size - 5MB maximum
+        $maxsize = 5 * 1024 * 1024;
+        if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
+    
+        // Verify MYME type of the file
+        if(in_array($filetype, $allowed)){
+            // Check whether file exists before uploading it
+            if(file_exists("upload/" . $filename)){
+                echo $filename . " is already exists.";
+            } else{
+                move_uploaded_file($_FILES["photo"]["tmp_name"], "upload/" . $filename);
+                echo "Your file was uploaded successfully.";
+            } 
+        } else{
+            echo "Error: There was a problem uploading your file. Please try again."; 
+        }
+    } else{
+        echo "Error: " . $_FILES["photo"]["error"];
+    }
+	$image="upload/".$filename;
+	
+	$sql = "insert into product(pname,price,quantity,image,team_id) values('$pname',$price,$qty,'$image',$teamid)";  
+ //$result = mysqli_query($conn, $sql);  
+ if(mysqli_query($conn, $sql)) 
+ {  
+      echo 'Data inserted';  
+ }  
+ else{
+     echo"<script type='text/javascript'>alert('issue');</script>";
+ }
+}
+	
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,12 +90,12 @@
         <div id="wrapper">
     
             <!-- Navigation -->
-   <?php include_once("sidebar.php"); ?>
+   <?php include_once("Admin-Web-Template/admin_sidebar.php"); ?>
            
    
             <!-- Page Content -->
             <div id="page-wrapper" style="width:100%;">
-               <?php   include_once("navbar.php");  ?>
+               <?php   include_once("Admin-Web-Template/admin_navbar.php");  ?>
                
                 <div class="container">
                    
@@ -49,7 +107,7 @@
                     </div>
                     <!-- /.row -->
 <!--                    form begins-->
-               <form action="http://localhost/movie_booking/startmin-master/pages/addmovie.php" method="post" enctype="multipart/form-data">
+               <form  method="post" enctype="multipart/form-data">
                    <div class="form-body">
                        <div class="row" style="margin-bottom:20px;">
                             <div class="col-md-6">
@@ -95,14 +153,14 @@
                             <div class="col-md-12">
                                 <div class="form-group last">
                                     <label class="control-label col-md-2">Product Image</label>
-                                    <input type="file">
+                                    <input type="file" id="photo" name="photo">
                                 </div>
 
                             </div>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn btn-warning" name="add_movie" style="margin-bottom:40px;margin-left:150px;">Save</button>
+                                <button type="submit" class="btn btn-warning" name="submit" id="submit" style="margin-bottom:40px;margin-left:150px;">Save</button>
                             </div>
                         </div>
                     </div>
