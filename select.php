@@ -26,7 +26,7 @@ include 'config.php';
                      <td class="pname" data-id1="'.$row["pid"].'" contenteditable>'.$row["pname"].'</td>  
                      <td class="price" data-id2="'.$row["pid"].'" contenteditable>'.$row["price"].'</td>  
 					 <td class="quality" data-id3="'.$row["pid"].'" contenteditable>'.$row["quantity"].'</td>  
-					 <td class="image" data-id4="'.$row["pid"].'" contenteditable>'.$row["image"].'</td>  
+					 <td class="image" data-id4="'.$row["pid"].'" contenteditable> <img src='.$row["image"].' style=width:200px; height:200px;></td>  
 					  <td class="team_id" data-id4="'.$row["pid"].'" contenteditable>'.$row["team_id"].'</td>  
                      <td><button type="button" name="delete_btn" data-id5="'.$row["pid"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
                 </tr>  

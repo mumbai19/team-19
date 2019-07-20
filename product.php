@@ -1,36 +1,30 @@
-﻿
-	<!--  start hero  -->
-	<section class="hero">
-<html>  
-      <head>  
-      <script type="applijegleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />	
-<script src="js/jquery-1.11.1.min.js"></script>
-
-<!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<script src="js/menu_jquery.js"></script>
-<script src="js/simpleCart.min.js"> </script>
-
-<!--web-fonts-->
- <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,700' rel='stylesheet' type='text/css'>
- <link href='//fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css'>
-
-<!--//web-fonts-->
-<script src="js/scripts.js" type="text/javascript"></script>
-<script src="js/modernizr.custom.js"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-      </head>  
-	  <style>
+        
+        <!-- Bootstrap Core CSS -->
+       
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput-rtl.min.css" />
+      
+    <link rel="stylesheet" href="../../plugins/bootstrap-fileinput/bootstrap-fileinput.css">
+      
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="Admin-Web-Template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="Admin-Web-Template/css/sb-admin-2.min.css" rel="stylesheet">
+        
+        	  <style>
 #tbldata {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -55,19 +49,30 @@
     color: white;
 }
 </style>
-      <body>  
-           <div class="container">  
-                <br />  
-                <br />  
-                <br />  
-                <div class="table-responsive">  
+       
+    </head>
+    <body>
+
+        <div id="wrapper">
+    
+            <!-- Navigation -->
+   <?php include_once("Admin-Web-Template/admin_sidebar.php"); ?>
+           
+   
+            <!-- Page Content -->
+            <div id="page-wrapper" style="width:100%;">
+               <?php   include_once("Admin-Web-Template/admin_navbar.php");  ?>
+               <div class="container">
+			   <div class="table-responsive">  
                      
                      <div id="live_data"></div>                 
                 </div>  
-           </div>  
-      </body>  
- </html>  
- <script>  
+				</div>
+				</div>
+				
+				
+				
+				<script>  
  $(document).ready(function(){  
       function fetch_data()  
       {  
@@ -200,9 +205,7 @@
     
  });  
  </script>
-	</section><!--  end hero  -->
-
-
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/js/fileinput.min.js"></script>
 	</body>
-</html>
+	</head>
+	</html>
