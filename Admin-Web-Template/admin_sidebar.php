@@ -36,6 +36,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="order_status.php?cb_flag=0">Pending Orders</a>
             <a class="collapse-item" href="order_status.php?cb_flag=1">Confirmed Orders</a>
+			<a class="collapse-item" href="order_status.php?cb_flag=2">Negotiating Orders</a>
+			<a class="collapse-item" href="order_status.php?cb_flag=-1">Declined</a>
           </div>
         </div>
       </li>
@@ -44,7 +46,11 @@
           <i class="fa fa-plus-square"></i>
           <span>Add Product</span></a>
       </li>
-
+ <li class="nav-item active">
+        <a class="nav-link" href="approveorder.php">
+          <i class="fa fa-plus-square"></i>
+          <span>Bulk/Customize</span></a>
+      </li>
       
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

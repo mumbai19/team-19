@@ -21,12 +21,12 @@ include_once("config.php");
        <div id="wrapper">
     
             <!-- Navigation -->
-   <?php include_once("sidebar.php"); ?>
+   <?php include_once("Admin-Web-Template/admin_sidebar.php"); ?>
            
    
             <!-- Page Content -->
             <div id="page-wrapper" style="width:100%;">
-               <?php   include_once("navbar.php");  ?>
+               <?php   include_once("Admin-Web-Template/admin_navbar.php");  ?>
                <div class="container">
           <h1>Pending Orders</h1>
           <?php  

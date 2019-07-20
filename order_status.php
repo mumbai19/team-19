@@ -127,12 +127,25 @@ include 'config.php'
             </table>
             </td>
             <td><?=$total?></td>
-			<?php if($order_status == 0) { ?>
-            <td>Pending</td>
-			<?php } else{
-				?>
-				<td>Pending</td>
-			<?php } ?>
+			<?php if($order_status == 0)
+			{ 
+            echo "<td>Pending</td>";
+			} 
+			 elseif($order_status == 1)
+			 {
+				
+				echo "<td>Confirmed</td>";
+			 }
+			 elseif($order_status == -1)
+			 {
+				echo"<td>Declined</td>";
+			 }
+			elseif($order_status == 2)
+			{
+			
+				echo"<td>negotiating</td>";
+		 }
+?>		 
             </tr>
     <?php
     }?>
