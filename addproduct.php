@@ -20,18 +20,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="Admin-Web-Template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="Admin-Web-Template/css/sb-admin-2.min.css" rel="stylesheet">
+        
         
        
     </head>
     <body>
 
         <div id="wrapper">
-
+    
             <!-- Navigation -->
+   <?php include_once("sidebar.php"); ?>
+           
    
             <!-- Page Content -->
-            <div id="page-wrapper">
+            <div id="page-wrapper" style="width:100%;">
+               <?php   include_once("navbar.php");  ?>
+               
                 <div class="container">
+                   
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">Add a Product:</h1>

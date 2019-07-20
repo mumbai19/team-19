@@ -10,9 +10,24 @@ include_once("config.php");
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="Admin-Web-Template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="Admin-Web-Template/css/sb-admin-2.min.css" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
+       
+       <div id="wrapper">
+    
+            <!-- Navigation -->
+   <?php include_once("sidebar.php"); ?>
+           
+   
+            <!-- Page Content -->
+            <div id="page-wrapper" style="width:100%;">
+               <?php   include_once("navbar.php");  ?>
+               <div class="container">
           <h1>Pending Orders</h1>
           <?php  
             $query="select * from product,order_master,order_product_mapping,customer where order_master.order_id=order_product_mapping.order_id and order_product_mapping.product_id=product.pid and order_master.cb_flag=1 and customer.customer_id=order_master.customer_id and order_master.order_status=0";
@@ -20,24 +35,24 @@ include_once("config.php");
             
             while($row=mysqli_fetch_assoc($result))
             {
-             echo "<div class='row' style='background-color:#efefef;'>
-            <div class='col-sm-2' style='background-color:#eee;'>
+             echo "<div class='row' style='background-color:#efefef;margin-bottom:10px;'>
+            <div class='col-sm-2' style='background-color:#fff;'>
               <p class='float-left'>".$row['pname']."/".$row['customer_name']."</p>
             </div>
-            <div class='col-sm-2' style='background-color:#eee;'>
+            <div class='col-sm-2' style='background-color:#fff;'>
               <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Change Quantity/Price
               </button>
             </div>
-            <div class='col-sm-2' style='background-color:#eee;'>
-              <p class='float-right' style='line-height:100%;'>".$row['price']."</p>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              <p class='float-right' style='line-height:100%;'>Price:".$row['total']."</p>
             </div>
-            <div class='col-sm-2' style='background-color:#eee;'>
-              <p class='float-right' style='line-height:100%;'>".$row['quantity']."</p>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              <p class='float-right' style='line-height:100%;'>Quantity:".$row['quantity']."</p>
             </div>
-            <div class='col-sm-2' style='background-color:#eee;'>
+            <div class='col-sm-2' style='background-color:#fff;'>
               <p class='float-right' style='line-height:100%;'><a href='approveorder.php?id=".$row['order_id']."'><i class='fa fa-check' style='color:green'></i>Approve</a></p>
             </div>
-            <div class='col-sm-2' style='background-color:#eee;'>
+            <div class='col-sm-2' style='background-color:#fff;'>
                 <p class='float-right' style='line-height:100%;'><a href='declineorder.php?id=".$row['order_id']."'><i class='fa fa-trash' style='color:red'></i>Decline</a></p>
             </div>
             
@@ -84,7 +99,15 @@ include_once("config.php");
         
         </div>
 
-    <script src="hide.js"></script>
+
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+       
+       
+            <script src="hide.js"></script>
    
     </body>
 </html>

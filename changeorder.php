@@ -10,7 +10,7 @@ $query="update order_quantity set quantity=$quan where order_id=".$_GET['id'];
     echo $query;
     $query="update order_master set total=$price where order_id=".$_GET['id'];
  $result=mysqli_query($connection,$query);
-//echo "done";
-//header("Location: acceptorder.php");
+echo "done";
+header("Location: acceptorder.php");
 }
 ?>
