@@ -3,11 +3,10 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-          <img src="img/logo.jpg" width="150" height="70">
+          <img src="Admin-Web-Template/img/logo.jpg" width="150" height="70">
         </div>
         <!-- <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div> -->
       </a>
-
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -36,6 +35,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="order_status.php?cb_flag=0">Pending Orders</a>
             <a class="collapse-item" href="order_status.php?cb_flag=1">Confirmed Orders</a>
+			<a class="collapse-item" href="order_status.php?cb_flag=2">Negotiating Orders</a>
+			<a class="collapse-item" href="order_status.php?cb_flag=-1">Declined</a>
           </div>
         </div>
       </li>
@@ -44,13 +45,24 @@
           <i class="fa fa-plus-square"></i>
           <span>Add Product</span></a>
       </li>
-
+ <li class="nav-item active">
+        <a class="nav-link" href="approveorder.php">
+          <i class="fa fa-plus-square"></i>
+          <span>Bulk/Customize</span></a>
+      </li>
+	
       
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
-      
+      <div id="google_translate_element" style="border 2px solid"></div>
+
 
     </ul>
-  
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>

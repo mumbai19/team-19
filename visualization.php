@@ -18,9 +18,16 @@ BODY {
 
 </head>
 <body>
-    <div id="chart-container">
-       <h2>Hi</h2>
+    <div id="chart-container" class="container">
+       <div class="container">
+           <div class="row">
+              
+               <div style="min-height:400px;min-width:400px;padding-left:400px;"> 
+                   <h2>Regional Analysis</h2>
         <canvas id="graphCanvas"></canvas>
+               </div>
+           </div>
+       </div>
     </div>
 
     <script>
@@ -43,7 +50,7 @@ BODY {
                     for (var i in array) {
                         console.log(array[i]);
                         name.push(array[i].region);
-                        number.push(array[i].suppliers);
+                        number.push(array[i].products);
                     }
                     
 

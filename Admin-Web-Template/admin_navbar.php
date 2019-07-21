@@ -4,7 +4,7 @@
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
+		
           <!-- Topbar Search -->
           
 
@@ -32,15 +32,20 @@
             </li>
 
             <!-- Nav Item - Alerts -->
-            
+             <div id="google_translate_element" style="border 2px solid"></div>
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+           
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< HEAD
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                <i class="fas fa-fw fa-user text-dark"></i>
+=======
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome</span>
                 <i class="fas fa-fw fa-user"></i>
+>>>>>>> adf98983641cb84389676c5e9a07d76a34ae4b5a
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

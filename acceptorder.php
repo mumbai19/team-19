@@ -21,18 +21,44 @@ include_once("config.php");
        <div id="wrapper">
     
             <!-- Navigation -->
-   <?php include_once("sidebar.php"); ?>
+   <?php include_once("Admin-Web-Template/admin_sidebar.php"); ?>
            
    
             <!-- Page Content -->
             <div id="page-wrapper" style="width:100%;">
-               <?php   include_once("navbar.php");  ?>
+               <?php   include_once("Admin-Web-Template/admin_navbar.php");  ?>
                <div class="container">
-          <h1>Pending Orders</h1>
+          <h1 style="color:black;">Pending Orders</h1>
+          
+          
+          <div class='row' style='background-color:grey;margin-bottom:10px;color:black;'>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              <p class='float-left'>Product Name/Customer Name</p>
+            </div>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              Change Quantity or Price
+            </div>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              <p class='float-right' style='line-height:100%;'>Price</p>
+            </div>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              <p class='float-right' style='line-height:100%;'>Quantity</p>
+            </div>
+            <div class='col-sm-2' style='background-color:#fff;'>
+              <p class='float-right' style='line-height:100%;'>Approve</p>
+            </div>
+            <div class='col-sm-2' style='background-color:#fff;'>
+                <p class='float-right' style='line-height:100%;'>Decline</p>
+            </div>
+                   </div>
+                   <hr style="margin-top:-10px;color:black;">
+          
           <?php  
             $query="select * from product,order_master,order_product_mapping,customer where order_master.order_id=order_product_mapping.order_id and order_product_mapping.product_id=product.pid and order_master.cb_flag=1 and customer.customer_id=order_master.customer_id and order_master.order_status=0";
             $result=mysqli_query($conn,$query);
             
+            
+                   
             while($row=mysqli_fetch_assoc($result))
             {
              echo "<div class='row' style='background-color:#efefef;margin-bottom:10px;'>

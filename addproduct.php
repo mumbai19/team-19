@@ -90,20 +90,15 @@ include 'config.php';
         <div id="wrapper">
     
             <!-- Navigation -->
-<<<<<<< HEAD
-   <?php include_once("Admin-Web-Template/sidebar.php"); ?>
-=======
+
    <?php include_once("Admin-Web-Template/admin_sidebar.php"); ?>
->>>>>>> d5352549590e6e8cfee2e9311f06e08265d18053
+
            
    
             <!-- Page Content -->
             <div id="page-wrapper" style="width:100%;">
-<<<<<<< HEAD
-               <?php   include_once("Admin-Web-Template/navbar.php");  ?>
-=======
+
                <?php   include_once("Admin-Web-Template/admin_navbar.php");  ?>
->>>>>>> d5352549590e6e8cfee2e9311f06e08265d18053
                
                 <div class="container">
                    
