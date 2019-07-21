@@ -3,7 +3,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-          <img src="img/logo.jpg" width="150" height="70">
+          <img src="Admin-Web-Template/img/logo.jpg" width="150" height="70">
         </div>
         <!-- <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div> -->
       </a>

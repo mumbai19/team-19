@@ -22,7 +22,7 @@ BODY {
        <div class="container">
            <div class="row">
               
-               <div class="col-lg-4 float-right" style="margin-left:100px;"> 
+               <div style="min-height:400px;min-width:400px;padding-left:400px;"> 
                    <h2>Regional Analysis</h2>
         <canvas id="graphCanvas"></canvas>
                </div>
