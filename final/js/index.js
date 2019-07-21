@@ -1,18 +1,13 @@
 var bulkSelected = false;
+var GST = 0.05;
+var DELIVERY = 20;
 
 $(document).ready(function() {
-    $(".addToCart").removeClass('disabled');
     
     $(".qty").change(function () {
-        var qtyID =   this.id;
+        var qtyID =  this.id;
         var productID = qtyID.substr(qtyID.indexOf("-") + 1);
         handleQty(productID);
-    });
-    
-    $(".buyNow").change(function () {
-        var buyID =   this.id;
-        var productID = buyID.substr(buyID.indexOf("-") + 1);
-        purchaseNow(productID);
     });
     
     $(".buyNow").on('click',function () {
@@ -70,14 +65,20 @@ function toggleCartButton(productID) {
 
 function purchaseNow(productID) {
     var cbFlag = 0;
+    var qty = $("#quantity-"+productID).val();
+    var price = $("#price-"+productID).html();
+    price = price.substr(1);
+    var total = price * qty;
+    total += total*GST + DELIVERY;
     if (bulkSelected) 
         cbFlag = 1;
     $.ajax({
         type: 'GET',
         url: 'purchaseNow.php',
-        data: { productID: productID, cbFlag: cbFlag},
+        data: { productID: productID, cbFlag: cbFlag, qty: qty, total: total},
         dataType: 'json',
         success: function (data) {
+            $("cart-"+productID).trigger('click');
             window.location.href="checkout.php"
         },
         error: function (data) {

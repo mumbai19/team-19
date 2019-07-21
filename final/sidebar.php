@@ -34,8 +34,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="order_status.php">Pending Orders</a>
-            <a class="collapse-item" href="cards.html">Confirmed Orders</a>
+            <a class="collapse-item" href="order_status.php?cb_flag=0">Pending Orders</a>
+            <a class="collapse-item" href="order_status.php?cb_flag=1">Confirmed Orders</a>
           </div>
         </div>
       </li>

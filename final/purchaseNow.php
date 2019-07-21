@@ -25,7 +25,7 @@ if(!empty($productID)){
     $result1 = mysqli_query($conn, $sql1); 
     
     $orderID = mysqli_insert_id($conn);
-    if($result1->num_rows > 0){
+    if($result1){
         $data['status'] = 'ok';
         $sql2 = "INSERT INTO order_product_mapping (order_id,
      product_id,
