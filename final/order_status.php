@@ -15,9 +15,7 @@ include 'config.php'
         <!-- Bootstrap Core CSS -->
        
         
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.5.1/css/fileinput-rtl.min.css" />
       
-    <link rel="stylesheet" href="../../plugins/bootstrap-fileinput/bootstrap-fileinput.css">
       
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -28,8 +26,38 @@ include 'config.php'
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+    <!--Data Table-->
+    <script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"  src=" https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+
+    <!--Export table buttons-->
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/pdfmake.min.js" ></script>
+    <script type="text/javascript"  src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.24/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
+
+<!--Export table button CSS-->
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css">
+  
+        
         <script>
-            $("#tbldata").dataTable();
+            $(document).ready(function() {
+    $('#tbldata').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
         </script>
 
 	<!--  start hero  -->
@@ -71,13 +99,17 @@ include 'config.php'
                
                 <div class="container">
 <table id="tbldata" class="table table-bordered">
-            <tr>
-                <td><strong>ORDER ID</th>
-                <td><strong>ORDER_DATE</th>
-                <td><strong>PRODUCT</th>
-                <td><strong>FINAL PRICE</th>
-                <td><strong>STATUS</th>
+    <thead>
+        <tr>
+                <th><strong>ORDER ID</th>
+                <th><strong>ORDER_DATE</th>
+                <th><strong>PRODUCT</th>
+                <th><strong>FINAL PRICE</th>
+                <th><strong>STATUS</th>
             </tr>
+    </thead>
+    <tbody>
+            
 	
 	<?php
 	$flag=$_GET["cb_flag"];
@@ -152,6 +184,8 @@ include 'config.php'
             </tr>
     <?php
     }?>
+        
+    </tbody>
 </table>
 
 <!--  end hero  -->

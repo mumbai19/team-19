@@ -12,10 +12,14 @@ $(document).ready(function () {
     getProductInfo();
 
     $("#bulk").on('change',function () {
-        if($("#bulk").prop('checked') == true) 
+        var qty = $(".quantity").val();
+        if($("#bulk").prop('checked') == true && qty > 50) 
             bulkSelected = true;
-        else 
+        else {
             bulkSelected = false;
+            $("#bulk").prop('checked',false);
+        }
+            
         
         toggleCartButton();
             
