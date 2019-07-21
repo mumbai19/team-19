@@ -93,6 +93,11 @@ class PaymentFormView extends React.Component {
 								cardData: cd
 							});
 						}}
+						additionalInputsProps={{
+							cvc: {
+								secureTextEntry: true
+							}
+						}}
 					/>
 					<DefaultInput
 						placeholder="Amount"
