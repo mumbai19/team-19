@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Picker, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, Picker, Alert, CheckBox } from 'react-native';
 import { CreditCardInput } from 'react-native-credit-card-input';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
@@ -18,7 +18,8 @@ class PaymentFormView extends React.Component {
 			cardData: { valid: false },
 			amount: 0,
 			category: '',
-			email: 'farhan@gmail.com'
+			email: 'farhan@gmail.com',
+			checked: false
 		};
 	}
 	onSubmit(creditCardInput, amount, category) {
@@ -96,6 +97,9 @@ class PaymentFormView extends React.Component {
 						additionalInputsProps={{
 							cvc: {
 								secureTextEntry: true
+							},
+							number: {
+								secureTextEntry: true
 							}
 						}}
 					/>
@@ -113,6 +117,10 @@ class PaymentFormView extends React.Component {
 							});
 						}}
 					/>
+					<View style={{ flexDirection: 'row' }}>
+						<CheckBox value={this.state.checked} />
+						<Text style={{ marginTop: 5 }}>Save your card</Text>
+					</View>
 					<Picker
 						selectedValue={this.state.category}
 						style={{ height: 50, width: '100%' }}
@@ -126,7 +134,9 @@ class PaymentFormView extends React.Component {
 						}}
 					>
 						<Picker.Item label="Women Empowerment" value="women" />
-						<Picker.Item label="Child" value="child" />
+						<Picker.Item label="Children Education" value="child" />
+						<Picker.Item label="Disaster Management" value="dmg" />
+						<Picker.Item label="Workshop" value="Workshop" />
 					</Picker>
 				</View>
 				<View style={styles.buttonWrapper}>
